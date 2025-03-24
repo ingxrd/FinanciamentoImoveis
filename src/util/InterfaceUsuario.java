@@ -1,6 +1,5 @@
 package util;
 import java.util.Scanner;
-
 import model.Apartamento;
 import model.Casa;
 import model.Financiamento;
@@ -71,31 +70,39 @@ public class InterfaceUsuario {
 
     public Financiamento criarFinanciamento() {
         int opcao = mostrarMenuFinanciamentos();
-
+        
+        // Dados comuns
         double valor = pedirValorImovel();
         int prazo = pedirPrazoFinanciamento();
         double taxa = pedirTaxaJurosAnual();
-        switch (opcao) {
+    
+        switch(opcao) {
             case 1: // Casa
-                System.out.print("Área construída(m2: ");
+                System.out.print("Área construída (m²): ");
                 double areaConstruida = scanner.nextDouble();
-                System.out.print("Área do terreno: ");
+                System.out.print("Área do terreno (m²): ");
                 double areaTerreno = scanner.nextDouble();
                 return new Casa(valor, prazo, taxa, areaConstruida, areaTerreno);
-            case 2: // Apto
+                
+            case 2: // Apartamento
                 System.out.print("Número de vagas na garagem: ");
                 int numVagasGaragem = scanner.nextInt();
                 System.out.print("Número do andar: ");
                 int numAndar = scanner.nextInt();
                 return new Apartamento(valor, prazo, taxa, numVagasGaragem, numAndar);
+                
             case 3: // Terreno
-                System.out.print("Tipo de Zona (Urbana ou Rural): ");
+                scanner.nextLine(); // Limpa o buffer
+                System.out.print("Tipo de Zona (Urbana/Rural): ");
                 String tipoZona = scanner.nextLine();
                 return new Terreno(valor, prazo, taxa, tipoZona);
-            case 4:
+                
+            case 4: // Sair
                 return null;
-
+                
+            default:
+                System.out.println("Opção inválida! Tente novamente.");
+                return criarFinanciamento(); // Recursão para nova tentativa
         }
     }
-
     }
