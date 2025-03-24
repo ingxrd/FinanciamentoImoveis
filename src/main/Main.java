@@ -21,9 +21,15 @@ public class Main {
         
         // Lista de financiamentos
         ArrayList<Financiamento> listaDeFinanciamentos = new ArrayList<Financiamento>();
-        Financiamento meuFinanciamento = null;
-        listaDeFinanciamentos.add(meuFinanciamento);
-        
+        // Instancia objetos manualmente
+        // Financiamento de Casa e Apartamento
+        listaDeFinanciamentos.add( new Casa(4000,40,2.4, 50, 100));
+        listaDeFinanciamentos.add(new Casa(50000, 43, 3.5, 50, 145));
+        listaDeFinanciamentos.add(new Apartamento(4000, 43,4.5, 0, 8));
+        listaDeFinanciamentos.add(new Apartamento(4500, 43, 4.5, 1,14));
+        listaDeFinanciamentos.add(new Terreno(4000,30,5.5, "Urbana"));
+
+
         // Variáveis para totais
         double totalValorImoveis = 0;
         double totalFinanciamentos = 0;
@@ -42,13 +48,6 @@ public class Main {
         }
         
 
-        // Instancia objetos manualmente
-        // Financiamento de Casa e Apartamento
-        listaDeFinanciamentos.add( new Casa(4000,40,2.4));
-        listaDeFinanciamentos.add(new Casa(50000, 43, 3.5));
-        listaDeFinanciamentos.add(new Apartamento(4000, 43,4.5));
-        listaDeFinanciamentos.add(new Apartamento(4500, 43, 4.5));
-        listaDeFinanciamentos.add(new Terreno(4000,30,5.5));
 
         // Exibir totais
         System.out.println("\nTOTAIS:");

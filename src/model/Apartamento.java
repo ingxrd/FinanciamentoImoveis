@@ -1,7 +1,11 @@
 package model;
 
 public class Apartamento extends Financiamento {
-    public Apartamento(double valorImovel, int prazoFinanciamento, double taxaJurosAnual){
+
+    int numVagasGaragem;
+    int numAndar;
+
+    public Apartamento(double valorImovel, int prazoFinanciamento, double taxaJurosAnual, int numVagasGaragem, int numAndar){
         super(valorImovel, prazoFinanciamento, taxaJurosAnual);
     }
 
