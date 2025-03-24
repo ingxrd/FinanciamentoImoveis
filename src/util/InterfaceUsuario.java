@@ -54,4 +54,15 @@ public class InterfaceUsuario {
         }
         return taxaJurosAnual;
     }
+
+    public int mostrarMenuFinanciamentos(){
+        System.out.println("\n=== SELECIONE O TIPO DE FINANCIAMENTO");
+        System.out.println("1 - Casa");
+        System.out.println("2 - Apartamento");
+        System.out.println("3 - Terreno");
+        System.out.println("4 - Sair");
+        return scanner.nextInt();
+    }
+
 }
+

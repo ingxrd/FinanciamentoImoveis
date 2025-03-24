@@ -37,6 +37,7 @@ public class Main {
         // Exibir detalhes e calcular totais
         for (Financiamento fin : listaDeFinanciamentos){
             System.out.println("\nDetalhes do Financiamento:");
+            System.out.println("Tipo de imóvel: " + fin.getTipoImovel());
             System.out.println("Valor do imóvel: R$ " + fin.getValorImovel());
             System.out.println("Taxa anual: " + (fin.getTaxaJurosAnual()) + "%");
             System.out.println("Prazo: " + fin.getPrazoFinanciamento() + " anos");

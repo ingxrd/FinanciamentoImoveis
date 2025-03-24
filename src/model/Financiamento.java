@@ -60,5 +60,6 @@ public abstract class Financiamento {
         return pagamentoTotal;
     }
 
+    public abstract String getTipoImovel();
     
 }

@@ -2,13 +2,15 @@ package model;
 
 public class Casa extends Financiamento {
     // Atributos específicos do financiamento da casa.
-    double areaConstruida;
-    double areaTerreno;
+    private double areaConstruida;
+    private double areaTerreno;
 
     // Crio um construtor
     public Casa(double valorImovel, int prazoFinanciamento, double taxaJurosAnual, double areaConstruida, double areaTerreno) {
         // SUPER permite acessar a classe pai.
         super(valorImovel, prazoFinanciamento, taxaJurosAnual);
+        this.areaConstruida = areaConstruida;
+        this.areaTerreno = areaTerreno;
     }
 
     @Override
@@ -19,6 +21,11 @@ public class Casa extends Financiamento {
 
     public double pagamentoSeguroObrigatorio() {
         return calculoPagamentoMensal() + 80;
+    }
+
+    @Override
+    public String getTipoImovel() {
+        return "Casa";
     }
 
 }
