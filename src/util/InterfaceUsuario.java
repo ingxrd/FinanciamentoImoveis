@@ -1,6 +1,11 @@
 package util;
 import java.util.Scanner;
 
+import model.Apartamento;
+import model.Casa;
+import model.Financiamento;
+import model.Terreno;
+
 
 public class InterfaceUsuario {
 
@@ -55,7 +60,7 @@ public class InterfaceUsuario {
         return taxaJurosAnual;
     }
 
-    public int mostrarMenuFinanciamentos(){
+    public int mostrarMenuFinanciamentos() {
         System.out.println("\n=== SELECIONE O TIPO DE FINANCIAMENTO");
         System.out.println("1 - Casa");
         System.out.println("2 - Apartamento");
@@ -64,5 +69,33 @@ public class InterfaceUsuario {
         return scanner.nextInt();
     }
 
-}
+    public Financiamento criarFinanciamento() {
+        int opcao = mostrarMenuFinanciamentos();
 
+        double valor = pedirValorImovel();
+        int prazo = pedirPrazoFinanciamento();
+        double taxa = pedirTaxaJurosAnual();
+        switch (opcao) {
+            case 1: // Casa
+                System.out.print("Área construída(m2: ");
+                double areaConstruida = scanner.nextDouble();
+                System.out.print("Área do terreno: ");
+                double areaTerreno = scanner.nextDouble();
+                return new Casa(valor, prazo, taxa, areaConstruida, areaTerreno);
+            case 2: // Apto
+                System.out.print("Número de vagas na garagem: ");
+                int numVagasGaragem = scanner.nextInt();
+                System.out.print("Número do andar: ");
+                int numAndar = scanner.nextInt();
+                return new Apartamento(valor, prazo, taxa, numVagasGaragem, numAndar);
+            case 3: // Terreno
+                System.out.print("Tipo de Zona (Urbana ou Rural): ");
+                String tipoZona = scanner.nextLine();
+                return new Terreno(valor, prazo, taxa, tipoZona);
+            case 4:
+                return null;
+
+        }
+    }
+
+    }
