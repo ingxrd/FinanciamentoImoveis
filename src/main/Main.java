@@ -1,4 +1,9 @@
+package main;
+import model.Financiamento;
+import util.InterfaceUsuario;
 import java.util.ArrayList;
+
+
 public class Main {
     public static void main(String[] args) {
         InterfaceUsuario interfaceUsuario = new InterfaceUsuario();
@@ -14,10 +19,13 @@ public class Main {
         Financiamento meuFinanciamento = new Financiamento(valorImovel, prazoFinanciamento, taxaJurosAnual);
         
         // Arraylist para armazenar os financiamentos 
-        ArrayList<Integer> financiamentos = new ArrayList<Integer>();
-        financiamentos.add(meuFinanciamento);
-        for (int i : financiamentos){
-            System.out.println(i);
+        ArrayList<Financiamento> listadeFinanciamentos = new ArrayList<Financiamento>();
+         listadeFinanciamentos.add(meuFinanciamento);
+        
+         for (Financiamento fin : listadeFinanciamentos){
+            System.out.println("Valor do imóvel: " + fin.getValorImovel());
+            System.out.println("Taxa anual do imóvel: " + fin.getTaxaJurosAnual());
+            System.out.println("Prazo de financiamento do imóvel: " + fin.getPrazoFinanciamento());
         }
         
 

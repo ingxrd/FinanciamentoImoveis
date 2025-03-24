@@ -1,3 +1,5 @@
+package model;
+
 public class Financiamento {
     // Atributos privados
     private double valorImovel;
@@ -15,7 +17,7 @@ public class Financiamento {
 
     //Método get e set = valorImovel 
 
-    public double getValorImovel(double valorImovel){
+    public double getValorImovel(){
         return valorImovel;
     }
 
@@ -24,7 +26,7 @@ public class Financiamento {
     }
 
     // Método get e set = prazoFinanciamento
-    public int getPrazoFinanciamento(int prazoFinanciamento){
+    public int getPrazoFinanciamento(){
         return prazoFinanciamento;
     }
 
@@ -33,11 +35,11 @@ public class Financiamento {
     }
 
     //Método get e set = taxaJurosAnual
-    public int getTaxaJurosAnual(int taxaJurosAnual){
+    public double getTaxaJurosAnual(){
         return taxaJurosAnual;
     }
 
-    public void setTaxaJurosAnual(int taxaJurosAnual){
+    public void setTaxaJurosAnual(double taxaJurosAnual){
         this.taxaJurosAnual = taxaJurosAnual;
     }
 
