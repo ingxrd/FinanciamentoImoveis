@@ -1,6 +1,10 @@
 package main;
 import java.util.ArrayList;
+
+import model.Apartamento;
 import model.Financiamento;
+import model.Casa;
+import model.Terreno;
 import util.InterfaceUsuario;
 
 public class Main {
@@ -40,5 +44,19 @@ public class Main {
         System.out.println("\nTOTAIS:");
         System.out.println("Soma dos valores dos imóveis: R$ " + totalValorImoveis);
         System.out.println("Soma dos valores dos financiamentos: R$ " + totalFinanciamentos);
+    
+        // Instancia objetos manualmente
+        listaDeFinanciamentos.add(new Financiamento (300000,20, 0.4));
+        listaDeFinanciamentos.add(new Financiamento (250000,24, 0.8));
+
+        // Financiamento de Casa e Apartamento
+        listaDeFinanciamentos.add( new Casa(4000,40,2.4));
+        listaDeFinanciamentos.add(new Casa(50000, 43, 3.5));
+        listaDeFinanciamentos.add(new Apartamento(4000, 43,4.5));
+        listaDeFinanciamentos.add(new Apartamento(4500, 43, 4.5));
+        listaDeFinanciamentos.add(new Terreno(4000,30,5.5));
+
+    
     }
+
 }
