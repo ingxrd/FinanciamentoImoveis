@@ -1,7 +1,8 @@
 package model;
 
 public abstract class Financiamento {
-    // Atributos privados
+    // Posso escolher trabalhar com protected ou private. No caso de protected, retiro os métodos getters e setters porque as subclasses conseguem acessá-los.
+    // Optei por usar private e continuar usando os métodos getters e setters.
     private double valorImovel;
     private int prazoFinanciamento;
     private double taxaJurosAnual;
@@ -15,7 +16,7 @@ public abstract class Financiamento {
 
     //Métodos getters e setter
 
-    //Método get e set = valorImovel 
+    //valorImovel
 
     public double getValorImovel(){
         return valorImovel;
@@ -25,7 +26,7 @@ public abstract class Financiamento {
         this.valorImovel = valorImovel;
     }
 
-    // Método get e set = prazoFinanciamento
+    //prazoFinanciamento
     public int getPrazoFinanciamento(){
         return prazoFinanciamento;
     }
@@ -48,10 +49,10 @@ public abstract class Financiamento {
 
     // Método que calcula pagamento mensal do financiamento. 
 
-    public double calculoPagamentoMensal(){
-        double pagamentoMensal = (valorImovel / (prazoFinanciamento * 12)) * (1 + (taxaJurosAnual / 12));
-        return pagamentoMensal;
-    }
+    // Para que seja uma classe abstrata, preciso que um metodo seja corretamente abstrato.
+    // Motivo da escolha calculoPagamentoMensal: cada uma das minhas subclasses - terreno, casa e apartamento - pode ter um calculo diferente do pagamento mensal.
+    //
+    public abstract double calculoPagamentoMensal(); // A subclasse deve implementar este metodo da melhor forma.
 
     public double calculoPagamentoTotal(){
         double pagamentoMensal = calculoPagamentoMensal();

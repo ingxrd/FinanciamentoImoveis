@@ -7,7 +7,13 @@ public class Casa extends Financiamento{
         super(valorImovel, prazoFinanciamento, taxaJurosAnual);
     }
 
+    @Override
+    public double calculoPagamentoMensal() {
+        double pagamentoMensal =  (getValorImovel() / (getPrazoFinanciamento() * 12) * (1 + (getTaxaJurosAnual() / 12)) * 1.02);
+        return pagamentoMensal;
+    }
+
     public double pagamentoSeguroObrigatorio(){
-        return super.calculoPagamentoMensal()+80;
+        return calculoPagamentoMensal() + 80;
     }
 }
