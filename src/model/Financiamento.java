@@ -1,6 +1,6 @@
 package model;
 
-public class Financiamento {
+public abstract class Financiamento {
     // Atributos privados
     private double valorImovel;
     private int prazoFinanciamento;

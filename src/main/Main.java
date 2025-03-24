@@ -17,10 +17,11 @@ public class Main {
         double taxaJurosAnual = interfaceUsuario.pedirTaxaJurosAnual();
 
         // Criar financiamento
-        Financiamento meuFinanciamento = new Financiamento(valorImovel, prazoFinanciamento, taxaJurosAnual);
+        //Financiamento meuFinanciamento = new Financiamento(valorImovel, prazoFinanciamento, taxaJurosAnual);
         
         // Lista de financiamentos
         ArrayList<Financiamento> listaDeFinanciamentos = new ArrayList<Financiamento>();
+        Financiamento meuFinanciamento = null;
         listaDeFinanciamentos.add(meuFinanciamento);
         
         // Variáveis para totais
@@ -31,7 +32,7 @@ public class Main {
         for (Financiamento fin : listaDeFinanciamentos){
             System.out.println("\nDetalhes do Financiamento:");
             System.out.println("Valor do imóvel: R$ " + fin.getValorImovel());
-            System.out.println("Taxa anual: " + (fin.getTaxaJurosAnual() * 100) + "%");
+            System.out.println("Taxa anual: " + (fin.getTaxaJurosAnual()) + "%");
             System.out.println("Prazo: " + fin.getPrazoFinanciamento() + " anos");
             System.out.println("Pagamento mensal: R$ " + fin.calculoPagamentoMensal());
             
@@ -40,15 +41,8 @@ public class Main {
             totalFinanciamentos += fin.calculoPagamentoTotal();
         }
         
-        // Exibir totais
-        System.out.println("\nTOTAIS:");
-        System.out.println("Soma dos valores dos imóveis: R$ " + totalValorImoveis);
-        System.out.println("Soma dos valores dos financiamentos: R$ " + totalFinanciamentos);
-    
-        // Instancia objetos manualmente
-        listaDeFinanciamentos.add(new Financiamento (300000,20, 0.4));
-        listaDeFinanciamentos.add(new Financiamento (250000,24, 0.8));
 
+        // Instancia objetos manualmente
         // Financiamento de Casa e Apartamento
         listaDeFinanciamentos.add( new Casa(4000,40,2.4));
         listaDeFinanciamentos.add(new Casa(50000, 43, 3.5));
@@ -56,7 +50,12 @@ public class Main {
         listaDeFinanciamentos.add(new Apartamento(4500, 43, 4.5));
         listaDeFinanciamentos.add(new Terreno(4000,30,5.5));
 
-    
+        // Exibir totais
+        System.out.println("\nTOTAIS:");
+        System.out.println("Soma dos valores dos imóveis: R$ " + totalValorImoveis);
+        System.out.println("Soma dos valores dos financiamentos: R$ " + totalFinanciamentos);
+
+
     }
 
 }
