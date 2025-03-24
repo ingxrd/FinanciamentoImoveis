@@ -1,7 +1,7 @@
 package main;
+import java.util.ArrayList;
 import model.Financiamento;
 import util.InterfaceUsuario;
-import java.util.ArrayList;
 
 
 public class Main {
@@ -31,6 +31,11 @@ public class Main {
 
 
         // exibir total dos valores dos imoveis 
+        for (Financiamento fin : listadeFinanciamentos) {
+            double totalValorImoveis = fin.getValorImovel();
+            System.out.println(totalValorImoveis);
+        }
+     
 
         // exibir total dos valores dos financiamentos 
 
