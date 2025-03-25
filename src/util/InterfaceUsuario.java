@@ -70,6 +70,10 @@ public class InterfaceUsuario {
 
     public Financiamento criarFinanciamento() {
         int opcao = mostrarMenuFinanciamentos();
+
+        if (opcao == 4) {
+            return null;
+        }
         
         // Dados comuns
         double valor = pedirValorImovel();
@@ -97,12 +101,9 @@ public class InterfaceUsuario {
                 String tipoZona = scanner.nextLine();
                 return new Terreno(valor, prazo, taxa, tipoZona);
                 
-            case 4: // Sair
-                return null;
-                
             default:
                 System.out.println("Opção inválida! Tente novamente.");
-                return criarFinanciamento(); // Recursão para nova tentativa
+                return criarFinanciamento();
         }
     }
     }

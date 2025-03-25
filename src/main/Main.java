@@ -12,8 +12,31 @@ public class Main {
 
     public static void main(String[] args) {
         InterfaceUsuario interfaceUsuario = new InterfaceUsuario();
+        InterfaceUsuario ui = new InterfaceUsuario();
+        ArrayList<Financiamento> lista = new ArrayList<>();
+        double totalValorImoveisUsuario = 0;
+        double totalFinanciamentosUsuario = 0;
 
-        // Coletar informações
+        while (true) {
+            Financiamento fin = ui.criarFinanciamento();
+            if (fin == null) {
+                break;
+            }
+
+            lista.add(fin);
+            totalValorImoveisUsuario += fin.getValorImovel();
+            totalFinanciamentosUsuario += fin.calculoPagamentoTotal();
+            System.out.println("Adicionado: " + fin.getClass().getSimpleName());
+        }
+
+// Exibir totais dos financiamentos adicionados pelo usuário
+        System.out.println("\nTotal de financiamentos criados pelo usuário: " + lista.size());
+        System.out.println("Soma dos valores dos imóveis adicionados: R$ " + totalValorImoveisUsuario);
+        System.out.println("Soma dos valores dos financiamentos adicionados: R$ " + totalFinanciamentosUsuario);
+
+
+    /*
+    // Coletar informações
         double valorImovel = interfaceUsuario.pedirValorImovel();
         int prazoFinanciamento = interfaceUsuario.pedirPrazoFinanciamento();
         double taxaJurosAnual = interfaceUsuario.pedirTaxaJurosAnual();
@@ -34,7 +57,6 @@ public class Main {
         double totalValorImoveis = 0;
         double totalFinanciamentos = 0;
 
-        /*  Exibir detalhes e calcular totais
         for (Financiamento fin : listaDeFinanciamentos){
             System.out.println("\nDetalhes do Financiamento:");
             System.out.println("Tipo de imóvel: " + fin.getTipoImovel());
@@ -56,20 +78,5 @@ public class Main {
         System.out.println("Soma dos valores dos financiamentos: R$ " + totalFinanciamentos);
         */
 
-        InterfaceUsuario ui = new InterfaceUsuario();
-        ArrayList<Financiamento> lista = new ArrayList<>();
 
-        while (true) {
-            Financiamento fin = ui.criarFinanciamento();
-            if (fin == null) {
-                break;
-            }
-
-            lista.add(fin);
-            System.out.println("Adicionado: " + fin.getClass().getSimpleName());
-        }
-
-        System.out.println("\nTotal de financiamentos: " + lista.size());
-    }
-
-}
+}}
